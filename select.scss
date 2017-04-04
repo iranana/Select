@@ -1,0 +1,167 @@
+
+.custom-select {
+    display: inline-block;
+    width: 100%;
+    position: relative;
+
+    // Wrapper
+    .custom-select-wrapper {
+        position: relative;
+    }
+
+    // Select element
+    select {
+        width: 0;
+        height: 0;
+        visibility: hidden;
+        position: absolute;
+    }
+
+    // Input used to display selected values
+    input {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        padding-right: 35px !important;
+        //background: transparent;
+
+        background-image: url('../img/icons/ic_keyboard_arrow_down_black_24dp_2x.png');
+        background-position: right 10px center;
+        background-repeat: no-repeat;
+        background-size: 24px;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    // If searchable
+    &[data-searchable="true"] {
+
+        .custom-select-options {
+            top: 100%;
+        }
+    }
+
+    // Main ul of options
+    .custom-select-options {
+        font-weight: 400;
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        border-radius: 0;
+        opacity: 0;
+        visibility: hidden;
+        background: #fff;
+        border: none;
+
+        border-radius: 0;
+        box-shadow: 0 1px 5px 0 rgba(0,0,0,0.25), 0 1px 1px 0 rgba(0,0,0,0.2), 0 2px 1px -1px rgba(0,0,0,0.2);
+        max-height: 300px;
+        overflow-y: scroll;
+        transition: opacity 0.35s ease, visibility 0.35s ease, z-index 0.35s linear, transform 0.35s ease, max-height 0.45s ease;
+
+        &.align-bottom {
+            top: auto;
+            bottom: 0;
+        }
+
+        &.active {
+            opacity: 1;
+            visibility: visible;
+            z-index: 999;
+
+            li {
+                pointer-events: auto;
+            }
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    // Items
+    li {
+        padding: 5px 10px;
+        font-size: 100%;
+        font-weight: 400;
+        width: 100%;
+        display: block;
+        margin: 0;
+        white-space: nowrap;
+        color: #333;
+        box-sizing: border-box;
+        max-height: 85px;
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.3s ease, visibility 0.3s ease, max-height 0.5s ease;
+        pointer-events: none;
+
+        span.inner {
+            padding: 10px 20px;
+        }
+
+        // Active class is added on keyup/keydown
+        &:hover,
+        &.active {
+            cursor: pointer;
+            background: #f8f8f8;
+        }
+
+        // Search
+        &.search-placeholder {
+            cursor: text !important;
+            background: #fff;
+            z-index: 999;
+            box-shadow: 0 0 3px rgba(0,0,0,0.35);
+        }
+
+        &.placeholder,
+        &.optgroup-placeholder {
+            font-weight: 300;
+            padding: 10px 20px;
+
+            &:hover {
+                background: none;
+                cursor: default;
+            }
+        }
+
+        // Optgroup placeholder
+        &.optgroup-placeholder {
+            font-size: rem(14);
+            font-weight: 600;
+        }
+
+        &.hidden {
+            //opacity: 0;
+            //visibility: hidden;
+            //max-height: 0;
+            display: none;
+        }
+    }
+
+    // Search blinker
+    span.blinker {
+        animation-name: blink;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-timing-function: steps(1);
+    }
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
