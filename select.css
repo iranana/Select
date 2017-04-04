@@ -1,1 +1,128 @@
-.custom-select{display:inline-block;width:100%;position:relative}.custom-select .custom-select-wrapper{position:relative}.custom-select select{width:0;height:0;visibility:hidden;position:absolute}.custom-select input{white-space:nowrap;text-overflow:ellipsis;padding-right:35px !important;background-image:url("../img/icons/ic_keyboard_arrow_down_black_24dp_2x.png");background-position:right 10px center;background-repeat:no-repeat;background-size:24px}.custom-select input:hover{cursor:pointer}.custom-select[data-searchable="true"] .custom-select-options{top:100%}.custom-select .custom-select-options{font-weight:400;position:absolute;top:0;left:0;margin:0;padding:0;width:100%;border-radius:0;opacity:0;visibility:hidden;background:#fff;border:none;border-radius:0;box-shadow:0 1px 5px 0 rgba(0,0,0,0.25),0 1px 1px 0 rgba(0,0,0,0.2),0 2px 1px -1px rgba(0,0,0,0.2);max-height:300px;overflow-y:scroll;transition:opacity 0.35s ease, visibility 0.35s ease, z-index 0.35s linear, transform 0.35s ease, max-height 0.45s ease}.custom-select .custom-select-options.align-bottom{top:auto;bottom:0}.custom-select .custom-select-options.active{opacity:1;visibility:visible;z-index:999}.custom-select .custom-select-options.active li{pointer-events:auto}.custom-select .custom-select-options ul{margin:0;padding:0}.custom-select li{padding:5px 10px;font-size:100%;font-weight:400;width:100%;display:block;margin:0;white-space:nowrap;color:#333;box-sizing:border-box;max-height:85px;opacity:1;visibility:visible;transition:opacity 0.3s ease, visibility 0.3s ease, max-height 0.5s ease;pointer-events:none}.custom-select li span.inner{padding:10px 20px}.custom-select li:hover,.custom-select li.active{cursor:pointer;background:#f8f8f8}.custom-select li.search-placeholder{cursor:text !important;background:#fff;z-index:999;box-shadow:0 0 3px rgba(0,0,0,0.35)}.custom-select li.placeholder,.custom-select li.optgroup-placeholder{font-weight:300;padding:10px 20px}.custom-select li.placeholder:hover,.custom-select li.optgroup-placeholder:hover{background:none;cursor:default}.custom-select li.optgroup-placeholder{font-size:rem(14);font-weight:600}.custom-select li.hidden{display:none}.custom-select span.blinker{animation-name:blink;animation-duration:1s;animation-iteration-count:infinite;animation-timing-function:steps(1)}@keyframes blink{0%{opacity:0}50%{opacity:1}100%{opacity:0}}
+.custom-select {
+  display: inline-block;
+  width: 100%;
+  position: relative;
+}
+.custom-select .custom-select-wrapper {
+  position: relative;
+}
+.custom-select select {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+  position: absolute;
+}
+.custom-select input {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-right: 35px !important;
+  background-image: url("../img/icons/ic_keyboard_arrow_down_black_24dp_2x.png");
+  background-position: right 10px center;
+  background-repeat: no-repeat;
+  background-size: 24px;
+}
+.custom-select input:hover {
+  cursor: pointer;
+}
+.custom-select input[type="checkbox"] {
+  margin-left: 0;
+  margin-right: 10px;
+}
+.custom-select[data-searchable="true"] .custom-select-options {
+  top: 100%;
+}
+.custom-select .custom-select-options {
+  font-weight: 400;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  border-radius: 0;
+  opacity: 0;
+  visibility: hidden;
+  background: #fff;
+  border: none;
+  border-radius: 0;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.25), 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 2px 1px -1px rgba(0, 0, 0, 0.2);
+  max-height: 300px;
+  overflow-y: scroll;
+  transition: opacity 0.35s ease, visibility 0.35s ease, z-index 0.35s linear, transform 0.35s ease, max-height 0.45s ease;
+}
+.custom-select .custom-select-options.align-bottom {
+  top: auto;
+  bottom: 0;
+}
+.custom-select .custom-select-options.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 999;
+}
+.custom-select .custom-select-options.active li {
+  pointer-events: auto;
+}
+.custom-select .custom-select-options ul {
+  margin: 0;
+  padding: 0;
+}
+.custom-select li {
+  padding: 8px 15px;
+  font-size: 100%;
+  font-weight: 400;
+  width: 100%;
+  display: block;
+  margin: 0;
+  white-space: nowrap;
+  color: #333;
+  box-sizing: border-box;
+  max-height: 85px;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease, visibility 0.3s ease, max-height 0.5s ease;
+  pointer-events: none;
+}
+.custom-select li:hover, .custom-select li.active {
+  cursor: pointer;
+  background: #f8f8f8;
+}
+.custom-select li.search-placeholder {
+  cursor: text !important;
+  background: #fff;
+  z-index: 999;
+  border-bottom: 1px solid #eee;
+  text-transform: capitalize;
+}
+.custom-select li.placeholder, .custom-select li.optgroup-placeholder {
+  font-weight: 300;
+  padding: 8px 15px;
+}
+.custom-select li.placeholder:hover, .custom-select li.optgroup-placeholder:hover {
+  background: none;
+  cursor: default;
+}
+.custom-select li.optgroup-placeholder {
+  font-size: rem(14);
+  font-weight: 600;
+}
+.custom-select li.hidden {
+  display: none;
+}
+.custom-select span.blinker {
+  animation-name: blink;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: steps(1);
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

@@ -32,6 +32,11 @@
         &:hover {
             cursor: pointer;
         }
+
+        &[type="checkbox"] {
+            margin-left: 0;
+            margin-right: 10px;
+        }
     }
 
     // If searchable
@@ -86,7 +91,7 @@
 
     // Items
     li {
-        padding: 5px 10px;
+        padding: 8px 15px;
         font-size: 100%;
         font-weight: 400;
         width: 100%;
@@ -101,10 +106,6 @@
         transition: opacity 0.3s ease, visibility 0.3s ease, max-height 0.5s ease;
         pointer-events: none;
 
-        span.inner {
-            padding: 10px 20px;
-        }
-
         // Active class is added on keyup/keydown
         &:hover,
         &.active {
@@ -117,13 +118,14 @@
             cursor: text !important;
             background: #fff;
             z-index: 999;
-            box-shadow: 0 0 3px rgba(0,0,0,0.35);
+            border-bottom: 1px solid #eee;
+            text-transform: capitalize;
         }
 
         &.placeholder,
         &.optgroup-placeholder {
             font-weight: 300;
-            padding: 10px 20px;
+            padding: 8px 15px;
 
             &:hover {
                 background: none;

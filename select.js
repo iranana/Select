@@ -26,6 +26,7 @@
 
     // Options
     this.searchable = settings.searchable || false;
+    this.fuzzy = settings.fuzzy || false;
     this.isMulti = false;
     if (this.element.multiple) {
       this.isMulti = true;
@@ -122,8 +123,14 @@
 
     // Search after 250ms
     searchTimer = setTimeout(function() {
+      var _this = this;
+
       var filteredList = this.searchableOptions.filter(function(element) {
-        return element.textContent.toLowerCase().trim().indexOf(filterString.toLowerCase()) > -1;
+        if (_this.fuzzy) {
+          return element.textContent.toLowerCase().trim().indexOf(filterString.toLowerCase()) > -1;
+        } else {
+          return element.textContent.toLowerCase().trim().indexOf(filterString.toLowerCase()) === 0;
+        }
       });
       var items = Array.prototype.slice.call(this.list.querySelectorAll('li:not(.search-placeholder):not(.optgroup-placeholder)'));
       var matchedList = [];
@@ -405,9 +412,9 @@
   Select.prototype.createOption = function(option) {
     var newOption;
     if (this.isMulti) {
-      newOption = ('<li class="waves-effect"><input type="checkbox" data-value="' + option.value + '" /><label>' + option.textContent + '</label></li>');
+      newOption = ('<li><input type="checkbox" data-value="' + option.value + '" /><label>' + option.textContent + '</label></li>');
     } else {
-      newOption = ('<li class="waves-effect" data-value="' + option.value + '">' + option.textContent + '</li>');
+      newOption = ('<li data-value="' + option.value + '">' + option.textContent + '</li>');
     }
     return newOption;
   };
@@ -449,14 +456,14 @@
         this.placeholderText = 'Select one or more items.';
       }
       if (this.searchable) {
-        this.placeholderText = 'Type to filter...';
+        this.placeholderText = 'Type to filter..';
       }
     }
 
     // Set and append placeholder
     this.placeholder.setAttribute('placeholder', this.placeholderText);
     if (this.searchable) {
-      this.list.insertAdjacentHTML('afterbegin', '<li class="placeholder search-placeholder"><span class="search-query">' + this.placeholderText + '</span><span class="blinker">|</span></li>');
+      this.list.insertAdjacentHTML('afterbegin', '<li class="placeholder search-placeholder"><span class="search-query"></span><span class="blinker">|</span></li>');
     } else {
       this.list.insertAdjacentHTML('afterbegin', '<li class="placeholder">' + this.placeholderText + '</li>');
     }
